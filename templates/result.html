@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maintenance Prediction Result</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #101827, #1e3a5f);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #1e293b;
+        }
+
+        .container {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #163b65;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .result-box {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 25px 15px;
+            margin-bottom: 25px;
+        }
+
+        .result-label {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .result-value {
+            color: #0f766e;
+            font-size: 23px;
+            font-weight: bold;
+            overflow-wrap: anywhere;
+        }
+
+        .details {
+            text-align: left;
+            background: #f8fafc;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .details p {
+            font-size: 14px;
+            margin: 10px 0;
+            color: #334155;
+            overflow-wrap: anywhere;
+        }
+
+        .details strong {
+            color: #163b65;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(90deg, #2563eb, #0f766e);
+            color: white;
+            border: none;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .footer {
+            color: #94a3b8;
+            font-size: 12px;
+            margin-top: 25px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px 20px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            .result-value {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <div class="icon" aria-hidden="true">🛗</div>
+
+    <h1>Maintenance Prediction</h1>
+
+    <p class="subtitle">
+        Your elevator operating data has been processed.
+        See the prediction result below.
+    </p>
+
+    <section class="result-box">
+        <p class="result-label">Prediction Result</p>
+
+        <div class="result-value">
+            {{ prediction }}
+        </div>
+    </section>
+
+    <section class="details">
+        <p>
+            <strong>Number of Trips:</strong>
+            {{ trips }}
+        </p>
+
+        <p>
+            <strong>Operating Hours:</strong>
+            {{ hours }}
+        </p>
+
+        <p>
+            <strong>Days Since Maintenance:</strong>
+            {{ days }}
+        </p>
+    </section>
+
+    <button type="button"
+            onclick="window.location.href='/'">
+        ← Back to Input Page
+    </button>
+
+    <p class="footer">
+        Elevator Maintenance Prediction System
+    </p>
+
+</main>
+
+</body>
+</html>
